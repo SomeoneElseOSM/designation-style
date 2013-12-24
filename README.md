@@ -15,3 +15,15 @@ The changes here do the following:
 
 These changes do mean that the the resulting database isn't any use for anything other than rendering, but they do allow designations to be displayed without any stylesheet changes.  Also, some information is lost in the process (e.g. track or steps vs path).
 
+Usage
+-----
+Previously I'd do something like this to load an OSM extract into a rendering database:
+
+    osm2pgsql --slim -d gis -C 2000 -k --number-processes 1 /path/to/osm_extract.osm.pbf 
+
+Instead now I'll do the following:
+
+    osm2pgsql --slim -d gis -C 2000 --number-processes 1 --tag-transform-script /path/to/designation-style/style.lua --hstore-all /path/to/osm_extract.osm.pbf 
+
+The rules in the new "style.lua" are used in place of osm2pgsql's native processing.  See [the answer to this help question](http://help.openstreetmap.org/questions/28465/osm2pqsql-and-lua/28466) and and [osm2pgsql's lua README](https://github.com/openstreetmap/osm2pgsql/blob/master/README_lua.md).
+
