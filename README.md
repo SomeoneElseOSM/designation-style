@@ -1,9 +1,9 @@
 designation-style
 =================
 
-osm2pgsql "style.lua" that causes the standard map style to render England/Wales access "designations" in preference to highway or tracktype.
+This is an osm2pgsql "style.lua" that causes the "standard" OSM map style to render England/Wales access "designations" in preference to highway or tracktype.
 
-The "standard" stylesheet contains rules for different sorts of tracks (tracktype), but doesn't contain rules for English/Welsh rights of way designations.
+The "standard" stylesheet contains rules for different sorts of tracks (tracktype=grade1 - grade4), but doesn't contain rules for English/Welsh rights of way designations ("public_footpath" etc.).
 
 The changes here do the following:
 
@@ -21,7 +21,7 @@ Previously I'd do something like this to load an OSM extract into a rendering da
 
     osm2pgsql --slim -d gis -C 2000 -k --number-processes 1 /path/to/osm_extract.osm.pbf 
 
-Instead now I'll do the following:
+Instead I'll now do the following:
 
     osm2pgsql --slim -d gis -C 2000 --number-processes 1 --tag-transform-script /path/to/designation-style/style.lua --hstore-all /path/to/osm_extract.osm.pbf 
 
