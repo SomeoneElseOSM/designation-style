@@ -83,6 +83,8 @@ function filter_tags_generic(keyvalues, nokeys)
 --    (dashed and dotted brown).
 -- 5) Render anything designated as "byway_open_to_all_traffic" as a 
 --    "grade3 track" (dashed brown)
+-- 6) Render anything designated as "unclassified_county_road" or a 
+--    misspelling as a "grade2 track" (long dashed brown)
 --
 -- These changes do mean that the the resulting database isn't any use for
 -- anything other than rendering, but they do allow designations to be 
@@ -96,6 +98,13 @@ function filter_tags_generic(keyvalues, nokeys)
        (keyvalues["highway"] == "bridleway") or 
        (keyvalues["highway"] == "track")) then
       keyvalues["highway"] = "path"
+   end
+
+   if ((keyvalues["designation"] == "unclassified_county_road") or
+       (keyvalues["designation"] == "unclassified_country_road") or
+       (keyvalues["designation"] == "unclassified_highway")) then
+      keyvalues["highway"] = "track"
+      keyvalues["tracktype"] = "grade2"
    end
 
    if (keyvalues["designation"] == "byway_open_to_all_traffic") then
