@@ -12,6 +12,7 @@ The changes here do the following:
 3. Render anything designated as "public_bridleway" as a "footway" (dotted green)
 4. Render anything designated as "restricted_byway" as a "grade4 track" (dashed and dotted brown).
 5. Render anything designated as "byway_open_to_all_traffic" as a "grade3 track" (dashed brown)
+6. Render anything designated as "unclassified_county_road" as a "grade2 track" (longer dashed brown)
 
 These changes do mean that the the resulting database isn't any use for anything other than rendering, but they do allow designations to be displayed without any stylesheet changes.  Also, some information is lost in the process (e.g. track or steps vs path).
 
