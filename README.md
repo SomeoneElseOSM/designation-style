@@ -26,5 +26,6 @@ Instead I'll now do the following:
 
     osm2pgsql --slim -d gis -C 2000 --number-processes 1 --tag-transform-script /path/to/designation-style/style.lua --hstore-all /path/to/osm_extract.osm.pbf 
 
-The rules in the new "style.lua" are used in place of osm2pgsql's native processing.  See [the answer to this help question](http://help.openstreetmap.org/questions/28465/osm2pqsql-and-lua/28466) and and [osm2pgsql's lua README](https://github.com/openstreetmap/osm2pgsql/blob/master/README_lua.md).
+The rules in the new "style.lua" are used in place of osm2pgsql's native processing.  See [the answer to this help question](http://help.openstreetmap.org/questions/28465/osm2pqsql-and-lua/28466) and and [osm2pgsql's lua README](https://github.com/openstreetmap/osm2pgsql/blob/master/docs/lua.md).
 
+See also https://github.com/SomeoneElseOSM/SomeoneElse-style for a style that includes these changes and many more legibility ones (so that for example names on parts of industrial areas show up properly).
