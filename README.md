@@ -1,6 +1,15 @@
 designation-style
 =================
 
+NOTE - this was created at the time when the "standard" osm.org style displayes "highway=footway" and "highway=path"
+differently, as an illustration of how to make simple changes to data with lua (and create a useful map).  In the
+current "standard" style "footway" and "path" are displayed identically, so to use this lua style now it would
+either need to be used with an older "standard" style, or modification (perhaps to use "cycleway" instead of "path").
+The ideas from here were further developed in https://github.com/SomeoneElseOSM/SomeoneElse-style and
+https://github.com/SomeoneElseOSM/openstreetmap-carto-AJT , which together show designated "public footpaths" etc.,
+as well as other things too.
+
+
 This is an osm2pgsql "style.lua" that causes the "standard" OSM map style to render England/Wales access "designations" in preference to highway or tracktype.
 
 The "standard" stylesheet contains rules for different sorts of tracks (tracktype=grade1 - grade4), but doesn't contain rules for English/Welsh rights of way designations ("public_footpath" etc.).
